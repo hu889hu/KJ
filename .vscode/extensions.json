@@ -1,0 +1,40 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint", // ESLint
+    "esbenp.prettier-vscode", // Prettier
+    "editorconfig.editorconfig", // EditorConfig for vscode
+    "Vue.volar",  // Vue 3
+    "mhutchie.git-graph", // Git graph
+    "Compulim.vscode-chinese-translation", // Chinese translation
+    "bierner.markdown-preview-github-styles", // Markdown preview
+    "mervin.markdown-formatter", // Markdown formater
+    "bierner.markdown-mermaid", // Markdown mermaid
+    "syler.sass-indented", // Sass 
+    "vscode-icons-team.vscode-icons", // vscode-icons
+    "GitHub.copilot", // GitHub Copilot
+    "mongodb.mongodb-vscode", // MongoDB for VS Code
+    // "livingasync.telegram-vscode", // Telegram
+    "ms-vscode-remote.vscode-remote-extensionpack", // Remote - Containers
+    "AykutSarac.jsoncrack-vscode", // JSONCrack
+    // "eamodio.gitlens" // GitLens
+  ],
+  "github.codespaces.defaultExtensions": [
+    "dbaeumer.vscode-eslint", // ESLint
+    "esbenp.prettier-vscode", // Prettier
+    "editorconfig.editorconfig", // EditorConfig for vscode
+    "Vue.volar",  // Vue 3
+    "mhutchie.git-graph", // Git graph
+    "Compulim.vscode-chinese-translation", // Chinese translation
+    "bierner.markdown-preview-github-styles", // Markdown preview
+    "mervin.markdown-formatter", // Markdown formater
+    "bierner.markdown-mermaid", // Markdown mermaid
+    "syler.sass-indented", // Sass 
+    "vscode-icons-team.vscode-icons", // vscode-icons
+    "GitHub.copilot", // GitHub Copilot
+    "mongodb.mongodb-vscode", // MongoDB for VS Code
+    // "livingasync.telegram-vscode", // Telegram
+    "ms-vscode-remote.vscode-remote-extensionpack", // Remote - Containers
+    "AykutSarac.jsoncrack-vscode", // JSONCrack
+    // "eamodio.gitlens" // GitLens
+  ]
+}

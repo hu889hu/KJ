@@ -1,0 +1,92 @@
+$primary-color: #fbbd18
+$primary-color-accent: #f0931e
+$primary-color-sub: #fff
+$secondary-color: #dd7a00
+$secondary-color-sub: #fff
+$secondary-color-accent: #aa5e00
+$teritary-color: #d57500
+$teritary-color-accent: #f7931a
+$teritary-color-dark: #a25900
+
+@mixin page-font()
+  font-family: -apple-system,BlinkMacSystemFont,"PingFang","Microsoft Jheng Hei","微軟正黑體","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji" !important
+  font-size: 16px
+
+@mixin page-button-font()
+  font-family: -apple-system,BlinkMacSystemFont,"Microsoft Jheng Hei","PingFang","蘋方","微軟正黑體","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" !important
+  font-size: 14px
+
+@mixin form-section($form-width: 760px)
+  display: block
+  max-width: $form-width
+  width: 95%
+  background-color: rgba(0, 0, 0, 0.42)
+  border-radius: 15px
+  padding: 48px 35px
+  border: 4px solid $primary-color
+
+@mixin form-input($icon-width, $icon-height)
+  position: relative
+  width: 100%
+  > :first-child
+    position: absolute
+    top: 50%
+    left: 10px
+    width: $icon-width
+    height: $icon-height
+    object-fit: cover
+    object-position: center
+    transform: translateY(-50%)
+    pointer-events: none
+  & input
+    width: 100%
+    padding: 15px 50px 15px calc(10px + $icon-width + 10px)
+    font-family: -apple-system, "system-ui", PingFang, "Microsoft Jheng Hei", 微軟正黑體, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    font-size: 16px
+    line-height: 24px
+    font-weight: 400
+    color: $primary-color
+    background-color: rgba(0, 0, 0, 0) !important
+    outline: none
+    border-bottom: 1px solid $primary-color
+    &::placeholder
+      color: rgba(117, 117, 117, 1)
+    &:active,
+    &:focus,
+    &:focus-visible
+      border-bottom: 1px solid $primary-color-sub
+    &:is(:-webkit-autofill, :autofill)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: $primary-color
+
+@mixin container()
+  width: 100%
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
+  @media (min-width: 576px)
+    max-width: 540px
+  @media (min-width: 768px)
+    max-width: 720px
+  @media (min-width: 992px)
+    max-width: 960px
+  @media (min-width: 1200px)
+    max-width: 1200px
+
+@mixin user-section()
+  padding: 30px 20px
+  background-color: rgba(255 ,255 ,255 , 0.8)
+  border-radius: 10px
+  
+@mixin user-button()
+  padding: 2px 15px
+  color: $secondary-color-sub
+  background-color: $secondary-color
+  font-family: -apple-system, "system-ui", "Microsoft Jheng Hei", PingFang, 蘋方, 微軟正黑體, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+  font-size: 14px
+  line-height: 21px
+  border-radius: 4px
+  border: 1px solid $secondary-color-sub
+  &:hover
+    background-color: $secondary-color-accent
