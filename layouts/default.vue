@@ -13,7 +13,9 @@ const intervalId = ref(null)
 const referrerCodeCookiee = useCookie('referrerCode', {
   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7)
 }) as any
-
+if (!isLogin()) {
+  navigateTo('/login')
+}
 const checksetInterval = async () => {
   const tokenExsit = isLogin()
   if (tokenExsit) {
@@ -45,7 +47,7 @@ await onMounted(() => {
   } else {
     console.log(`Debug mode env : `, process.env.NODE_ENV)
     if (process.env.NODE_ENV !== 'development') {
-      console.log = () => {}
+      console.log = () => { }
     }
   }
 
@@ -250,6 +252,7 @@ html {
   /* overflow: -moz-hidden-unscrollable; */
   /* background-color: rgb(250 250 250); */
 }
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 
 ::-webkit-scrollbar {
@@ -258,6 +261,7 @@ html {
   background: transparent;
   /* make scrollbar transparent */
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 
 /* *:not(input) { */
@@ -291,6 +295,7 @@ html {
   position: relative;
   margin: 0;
 }
+
 a {
   text-decoration: none;
 }
