@@ -15,7 +15,7 @@ const referrerCodeCookiee = useCookie('referrerCode', {
 }) as any
 console.log(router.currentRoute.value.name, 'router.currentRoute.value.name');
 
-if (!isLogin() && router.currentRoute.value.name !== 'register') {
+if (!isLogin() && router.currentRoute.value.name !== 'register' && router.currentRoute.value.name !== 'error') {
   navigateTo('/login')
 }
 const checksetInterval = async () => {
