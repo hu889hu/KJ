@@ -373,6 +373,8 @@ onUnmounted(() => {
   width: 100%
   height: 100vh
   background: #000 url(@/assets/images/kj-game/53bg.png) center / 100% 100%
+  @media (max-width: 752px)
+    height: auto
   header
     position: absolute
     top: 0
@@ -425,6 +427,9 @@ onUnmounted(() => {
     padding: 110px 2.5% 91px
     display: grid
     grid-template-columns: 1fr 3fr 1fr
+    @media (max-width: 752px)
+      display: block
+      height: auto
     .box-title
       width: 100%
       height: 50px
@@ -471,6 +476,8 @@ onUnmounted(() => {
             font-size: 12px
     .game-box
       position: relative
+      @media (max-width: 752px)
+        height: 650px
       .earth-number
         position: absolute
         width: 100%
@@ -482,10 +489,14 @@ onUnmounted(() => {
             color: #0ac1c7
             font-size: 1rem
             font-family: '宋体'
+            @media (max-width: 752px)
+              font-size: 0.8rem
           h1
             font-family: 'LCdd'
             font-size: 2rem
             color: #f29701
+            @media (max-width: 752px)
+              font-size: 1.2rem
         .inner1
           top: 20%
           left: 4%
