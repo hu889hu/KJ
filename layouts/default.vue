@@ -13,7 +13,9 @@ const intervalId = ref(null)
 const referrerCodeCookiee = useCookie('referrerCode', {
   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7)
 }) as any
-if (!isLogin()) {
+console.log(router.currentRoute.value.name, 'router.currentRoute.value.name');
+
+if (!isLogin() && router.currentRoute.value.name !== 'register') {
   navigateTo('/login')
 }
 const checksetInterval = async () => {
