@@ -190,9 +190,7 @@ const handleMouseOut = (e) => {
 const { isLogin } = useAuthStore()
 // 添加事件監聽
 onMounted(() => {
-  if (!isLogin()) {
-    navigateTo('/login')
-  }
+
   console.log('window', window.innerWidth);
 
   // 监听鼠标移动（仅更新坐标）

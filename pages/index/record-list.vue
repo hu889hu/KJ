@@ -37,7 +37,6 @@ const walletTypeName = (type: any) => {
 }
 const type = route.query.type
 const transferList = ref([])
-const rate = ref(1)
 onMounted(async () => {
   if (route.query.type === 'funds') {
     const queryWithdrawRecordRes = await queryWithdrawRecord({})
@@ -46,7 +45,7 @@ onMounted(async () => {
     const queryTransferRecordRes = await queryTransferRecord({})
     transferList.value = queryTransferRecordRes.data.result
   } else {
-    const selectWalletIds = route.query.type === 'nt' ? 2 : 13
+    const selectWalletIds = route.query.type === 'nt' ? 13 : 2
     const firstWallet = playerStore.playerInfo.wallet.find(
       (item: any) => item.type === selectWalletIds
     )
@@ -60,9 +59,6 @@ onMounted(async () => {
       return item.type === 0 || item.type === 3 || item.type === 4
     })
 
-    rate.value = siteStore.siteData.walletConfig.exchangeRates.find((item) =>
-      item.toWalletType == '2'
-    ).rate
   }
 
 })
@@ -256,7 +252,7 @@ const statusList = [
                 </th>
                 <th>
                   <div>{{ statusList[item.status].label }}</div>
-                  {{ new Intl.NumberFormat('zh-TW').format(item.toAmount) }}
+                  {{ item.status == 1 ? new Intl.NumberFormat('zh-TW').format(item.toAmount) : 0 }}
                 </th>
               </tr>
             </tbody>

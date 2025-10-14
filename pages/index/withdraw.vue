@@ -66,11 +66,11 @@ const goWithdraw = async () => {
       ? {
         amount: JSON.stringify(withdrawAmount.value),
         password: tPwd.value,
-        walletType: siteStore.siteData?.mainWalletType
+        walletType: 13
       }
       : {
         amount: JSON.stringify(withdrawAmount.value),
-        walletType: siteStore.siteData?.mainWalletType
+        walletType: 13
       }
   )
   if (withdrawRes.success) {
@@ -185,7 +185,7 @@ const goTransfer = async () => {
 
 const mainBalance = computed(() => {
   const mainWallet = playerStore.playerInfo.wallet.find(
-    (item: any) => item.type === siteStore.siteData?.mainWalletType
+    (item: any) => item.type === 13
   )
   return mainWallet ? mainWallet.balance : 0
 })
@@ -308,7 +308,7 @@ watch(
             </button>
           </div>
         </div>
-        <div v-if="selectType === 'transfer'" class="form-bg">
+        <!-- <div v-if="selectType === 'transfer'" class="form-bg">
           <div class="input-classic">
             <span class="input-title">{{ $lang('轉出錢包') }}</span>
             <select v-model="transferWalletData.from" class="selectStyle">
@@ -338,7 +338,7 @@ watch(
               {{ $lang('確認送出') }}
             </button>
           </div>
-        </div>
+        </div> -->
         <!-- <div class="form-bg" v-else>
         <div class="input-classic">
           <span class="input-title">{{ $lang('銀行') }}</span>

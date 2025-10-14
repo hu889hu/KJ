@@ -58,7 +58,7 @@ onMounted(async () => {
   if (process.client) {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = '/assets/uikit/uikit.min.css'
+    link.href = 'uikit/uikit.min.css'
     document.head.appendChild(link)
   }
   await nextTick()

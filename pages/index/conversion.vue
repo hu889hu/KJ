@@ -9,7 +9,7 @@ const playerWalletBalance = computed(() => {
     return 0
   }
   const findWallet = PlayerStore.playerInfo?.wallet.find(
-    (wallet: any) => wallet.type === 13
+    (wallet: any) => wallet.type === 2
   )
   if (findWallet) {
     return Number(findWallet.balance)
@@ -34,15 +34,15 @@ const playerWalletBalances = computed(() => {
 
 onMounted(async () => {
   rate.value = siteStore.siteData.walletConfig.exchangeRates.find((item) =>
-    item.toWalletType == '2'
+    item.toWalletType == '13'
   ).rate
 })
 const amount = ref()
 const toAmount = ref()
 const goTransfer = async () => {
   const transferRes = await transfer({
-    fromWalletId: PlayerStore.playerInfo.wallet[1].id,
-    toWalletId: PlayerStore.playerInfo.wallet[0].id,
+    fromWalletId: PlayerStore.playerInfo.wallet[0].id,
+    toWalletId: PlayerStore.playerInfo.wallet[1].id,
     amount: JSON.stringify(amount.value),
     memo: `用戶操作 USDT 劃轉至 TWD ,數量: ${amount.value}`
   })

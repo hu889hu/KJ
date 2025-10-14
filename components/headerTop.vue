@@ -18,7 +18,7 @@ const playerWalletBalance = computed(() => {
   console.log(PlayerStore.playerInfo, 'PlayerStore.playerInfo')
 
   const findWallet = PlayerStore.playerInfo?.wallet.find(
-    (wallet: any) => wallet.type === 2
+    (wallet: any) => wallet.type === 13
   )
   if (findWallet) {
     return Number(findWallet.balance)
@@ -83,7 +83,6 @@ watch(
             </div>
             <div class="header-el-subtitle">
               <span v-if="isLogin()">
-                NT
                 <i class="fa-solid fa-dollar-sign"></i>
                 {{
                   new Intl.NumberFormat('zh-TW').format(playerWalletBalance)
