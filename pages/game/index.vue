@@ -128,7 +128,7 @@ const checkBetData = (tpite: string) => {
   console.log('selectProductOrder', selectProductOrder.value)
   if (betRoundNo.value === serverTime.value.currentRoundId) {
     ElNotification({
-      message: '調整進行中，請勿重複送出',
+      message: '請稍等，待前一筆程序輸送完成后再進行操作',
       type: 'error',
       showClose: false
     })
