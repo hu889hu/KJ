@@ -74,9 +74,9 @@ const isFormValid = computed(() => {
   if (signupData.value.mobile) {
     isValid = isValid && validationStatus.phoneValid
   }
-  if (socialIdRef.value !== null) {
-    isValid = isValid && signupData.value.socialId
-  }
+  // if (socialIdRef.value !== null) {
+  //   isValid = isValid && signupData.value.socialId
+  // }
 
   console.log('isFormValid:', isValid) // 添加日志
   return isValid
@@ -395,7 +395,7 @@ const handleCompositionEnd = (e) => {
               <input v-model="signupData.socialId" v-trim-input :placeholder="t('請輸入LINE聯繫方式')" type="text"
                 class="input_style" />
             </div>
-            <div class="tips">
+            <!-- <div class="tips">
               <div ref="socialIdRef" :class="signupData.socialId ? 'valid-feedback' : 'invalid-feedback'
                 ">
                 <span v-if="signupData.socialId">
@@ -403,7 +403,7 @@ const handleCompositionEnd = (e) => {
                 </span>
                 {{ $lang('必填') }}
               </div>
-            </div>
+            </div> -->
 
             <div class="icon1">
               <recaptcha @check-hepler="checkHepler"></recaptcha>

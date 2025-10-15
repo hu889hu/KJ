@@ -101,9 +101,12 @@ const transactionRecordType = (type: any) => {
   const data = siteStore.siteData.walletLogType.find(
     (item) => item.type === type
   )
+  // const data = siteStore.siteData.walletLogType.find(
+  //   (item) => item.type === type
+  // )
 
-  if (selectWallet.value.type !== 1 && type === 7) {
-    return t('質押')
+  if (type === 0) {
+    return t('資金轉入')
   } else {
     return data ? t(data.label) : t('未知')
   }
@@ -227,7 +230,7 @@ const statusList = [
               <tr v-for="(item, index) in recordList" :key="index" class="recordBox-toggle">
                 <th>{{ formatDate(item.createdAt) }}</th>
                 <th class="content">
-                  {{ $lang('類型') }}:{{ transactionRecordType(item.type) }}
+                  <span v-if="item.type !== 3">{{ $lang('類型') }}:{{ transactionRecordType(item.type) }}</span>
                 </th>
                 <th>
                   ${{ new Intl.NumberFormat('zh-TW').format(item.amount) }}

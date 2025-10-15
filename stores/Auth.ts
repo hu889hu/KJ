@@ -133,7 +133,12 @@ export const useAuthStore = defineStore('auth', () => {
         //       res.message == '請聯繫客服' ? `${t('帳號異常')}` : res.message
         //     )
         if (res.statusCode === 401) {
-          navigateTo('/error')
+          if (res.message == '請聯繫客服') {
+            navigateTo('/error')
+          } else {
+            ElMessage.error(res.message)
+          }
+          console.log(res.message, 'res.message')
         }
         return {
           success: false
