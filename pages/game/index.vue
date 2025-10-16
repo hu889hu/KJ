@@ -38,7 +38,7 @@ const selectProductOrder = ref({
   playerId: '',
   productId: typeLis.value._id,
   type: '',
-  piece: 0,
+  piece: '',
   validation: ''
 })
 const clearBetData = () => {
@@ -186,7 +186,7 @@ const checkBetData = (tpite: string) => {
           //     dangerouslyUseHTMLString: true
           //   }
           // )
-          selectProductOrder.value.piece = 0
+          selectProductOrder.value.piece = ''
           ElNotification({
             title: '執行正確',
             type: 'success',
