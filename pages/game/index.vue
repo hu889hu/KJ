@@ -295,6 +295,7 @@ const startConnectWebSocket = async () => {
 
     socket.value.onerror = (error) => {
       socketConnected.value = false
+      load.value = false
       console.error('WebSocket error:', error)
     }
   }
