@@ -260,6 +260,7 @@ const startConnectWebSocket = async () => {
           const type2 = route.query.type;
           console.log(route.query.type, 'route.query.type');
           await onType(type2)
+          load.value = false
           break
         }
         default:
@@ -283,6 +284,7 @@ const startConnectWebSocket = async () => {
       console.log('Disconnected from socket')
       isFirstGet.value = true
       socketConnected.value = false
+      load.value = false
       if (reconnected) {
         setTimeout(async () => {
           // await startConnectWebSocket()
@@ -298,8 +300,9 @@ const startConnectWebSocket = async () => {
   }
 }
 
-
+const load = ref(false)
 onMounted(async () => {
+  load.value = true
   await startConnectWebSocket()
 })
 
@@ -530,6 +533,9 @@ const displayedActivities = computed(() => {
         </div>
       </div>
     </div>
+    <div class="loading-view" v-if="load">
+      數據載入中
+    </div>
   </div>
 </template>
 
@@ -656,8 +662,27 @@ $background: rgba(0, 0, 0, 0.6)
       &:hover
         color: #16181b
         background-color: #f8f9fa
-  
-      
+
+.loading-view
+  position: fixed
+  top: 50%
+  left: 50%
+  padding: 40px 60px
+  color: #fff
+  background-color: #ffffff9a
+  border-radius: 10px
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.562)
+  transform: translate(-50%,-50%)
+  animation: fadeLoad 1.5s ease-in-out infinite
+
+@keyframes fadeLoad
+  0% 
+    transform: translate(-50%,20px)
+  50%
+    transform: translate(-50%,-20px)
+  100%
+    transform: translate(-50%,20px)
+   
 @keyframes fadeIn
   from 
     opacity: 0

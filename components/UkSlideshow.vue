@@ -92,16 +92,17 @@ watch(() => props.ratio, initSlideshow)
   position: absolute
   bottom: 5%
   right: 5%
-.uk-dotnav>*>*
+:deep(.uk-dotnav>*>*)
   border: none
   margin: 0 5px
   width: 15px
   height: 15px
-  background-color: #dfdfdf
+  background-color: rgba(255,255,255,.5) !important
   border-radius: 0
 :deep(.uk-dotnav>.uk-active>*)
   background-color: #7497b5 !important
   border: none
+
 :deep(.uk-slideshow-items)
   .uk-active.uk-transition-active
     .slide-cont
