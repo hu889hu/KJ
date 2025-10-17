@@ -571,7 +571,7 @@ $background: rgba(0, 0, 0, 0.6)
 .nav-container
   position: sticky
   top: 0
-  z-index: 99
+  z-index: 15
 .login-container
   margin: 0 auto
   display: flex
