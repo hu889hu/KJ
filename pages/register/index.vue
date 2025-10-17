@@ -760,7 +760,7 @@ img
   color: #fff
   font-size: 18px
   font-weight: bold
-  text-transform: uppercase
+  // text-transform: uppercase
   padding: .8em 2em
   letter-spacing: 1px
   transition: 0.5s all
