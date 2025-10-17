@@ -541,7 +541,6 @@ $background: rgba(0, 0, 0, 0.6)
   word-wrap: break-word
   line-height: 24px
   margin-left: 15px
-  // min-height: 48px
 .right-info
   text-align: end
   .info-on
