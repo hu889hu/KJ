@@ -667,7 +667,7 @@ $background: rgba(0, 0, 0, 0.6)
     opacity: 1
     transform: translateY(0)
 .game-container
-  height: 100vh
+  // height: 100vh
   overflow-y: auto
 
   .game-items
