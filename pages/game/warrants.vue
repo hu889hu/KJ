@@ -457,6 +457,7 @@ onUnmounted(() => {
   position: relative
   width: 100%
   height: 100vh
+  overflow-x: hidden
   background: #000 url(@/assets/images/kj-game/53bg.png) center / 100% 100%
   @media (max-width: 752px)
     height: auto
