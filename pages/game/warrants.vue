@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 const router = useRouter()
 const siteStore = useSiteStore()
 const PlayerStore = usePlayerStore()
@@ -11,6 +10,98 @@ const socketConnected = ref(false)
 const serverTime = ref({})
 const productList = ref([])
 const isFirstGet = ref(false)
+
+
+const productUpdate = [
+  {
+    "_id": "68e225128334115195b7a87a",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "GaN-on-Diamond 功率晶片核心材料",
+    "type": [
+      "氮化鎵（GaN）外延層",
+      "鑽石基板（CVD Diamond Substrate）",
+      "金屬電極（Ti、Pt、Au、AlCu）",
+      "鍵合材料（AuSn、Cu、奈米銀膠）"
+    ],
+    "validation": [
+      "god"
+    ]
+
+  },
+  {
+    "_id": "68e225a023825dd0dda6e8bf",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "功率模組與散熱封裝材料",
+    "type": [
+      "高導熱基板（SiC、AlN、CVD 鑽石薄膜）",
+      "封裝基板（AlN、Rogers PCB）",
+      "熱介面材料（石墨烯塗層、PCM、高導熱凝膠）",
+      "金屬散熱器（銅合金、鋁合金，含液冷/微通道冷板）"
+    ],
+    "validation": [
+      "powermodule"
+    ]
+
+  },
+  {
+    "_id": "68e2274223825dd0dda6e8eb",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "微波/射頻系統材料",
+    "type": [
+      "射頻同軸電纜與接頭（Ag 鍍銅/PTFE）",
+      "微波導波管/天線（不鏽鋼、鍍銀銅、陶瓷介質）",
+      "匹配網路材料（高頻電容、電感、功率電阻）"
+    ],
+    "validation": [
+      "microwave"
+    ]
+
+  },
+  {
+    "_id": "68e2277f23825dd0dda6e8f0",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "醫療導管與探頭材料（RFA & 心律不整）",
+    "type": [
+      "導管管身（Pebax、PTFE）",
+      "電極頭端（PtIr、金鍍層、不鏽鋼）",
+      "導絲與支撐（Nitinol、不鏽鋼絲）",
+      "絕緣層（PI、醫療級矽膠）"
+    ],
+    "validation": [
+      "medical"
+    ]
+
+  },
+  {
+    "_id": "68e227e78334115195b7a922",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "冷卻與安全控制材料",
+    "type": [
+      "冷卻管路（PU、矽膠）",
+      "冷卻液（生理鹽水、滅菌水、液氮）",
+      "感測材料（NiCr-NiAl 熱電偶、SiO₂ 光纖溫度感測器）"
+    ],
+    "validation": [
+      "cooling"
+    ]
+
+  },
+  {
+    "_id": "68e2285d572c441d4e029611",
+    "siteId": "68dfa562e4e29afcdccca817",
+    "name": "醫療級外殼與界面材料",
+    "type": [
+      "機殼材料（ABS、PC、鋁合金）",
+      "觸控面板（強化玻璃、ITO 薄膜）",
+      "滅菌兼容塗層（PEEK、316L 不鏽鋼）"
+    ],
+    "validation": [
+      "shell"
+    ]
+
+  }
+]
+
 
 // game socket
 const reconnected = ref(true)
@@ -94,16 +185,6 @@ const startConnectWebSocket = async () => {
 }
 
 
-
-await onMounted(async () => {
-  await startConnectWebSocket()
-})
-onBeforeUnmount(() => {
-  reconnected.value = false
-  console.log('closeWebSocket', reconnected.value)
-  closeWebSocket()
-})
-
 const onPush = (path: string) => {
   if (path === '/') return navigateTo(path)
   let pathStr = '/game?type=' + path
@@ -112,7 +193,7 @@ const onPush = (path: string) => {
 
 const time1 = ref()
 const server1 = ref(0)
-onMounted(() => {
+onMounted(async () => {
   time1.value = setInterval(() => {
     if (server1.value >= productList.value.length) {
       server1.value = 0
@@ -120,11 +201,15 @@ onMounted(() => {
       server1.value++
     }
   }, 2000)
+  // await startConnectWebSocket()
   startAllRandomNumbers()
 
 })
 onBeforeUnmount(() => {
   clearInterval(time1.value)
+  reconnected.value = false
+  console.log('closeWebSocket', reconnected.value)
+  closeWebSocket()
 })
 
 // 創建獨立的隨機數生成器
@@ -217,7 +302,7 @@ onUnmounted(() => {
           <h5>數據管理選擇</h5>
         </div>
         <div class="left-items">
-          <div class="item" v-for="(item, index) in productList" @click="onPush(item.validation[0])"
+          <div class="item" v-for="(item, index) in productUpdate" @click="onPush(item.validation[0])"
             :class="server1 == index ? 'active' : ''">
             <img src="@/assets/images/kj-game/up.png" alt="" class="up">
             <span>{{ item.name }}</span>

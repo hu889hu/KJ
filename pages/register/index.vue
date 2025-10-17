@@ -241,7 +241,8 @@ const handleCompositionEnd = (e) => {
       <div class="bg-layer">
         <div class="header-main">
           <div class="main-icon">
-            <h1>技術系統申請</h1>
+            <img src="@/assets/images/logo-login.jpg" alt="">
+            <!-- <h1>AKASH SYSTEMS Registration</h1> -->
           </div>
           <div class="header-left-bottom">
             <!-- <div class="icon1">
@@ -404,21 +405,22 @@ const handleCompositionEnd = (e) => {
                 {{ $lang('必填') }}
               </div>
             </div> -->
-
-            <div class="icon1">
-              <recaptcha @check-hepler="checkHepler"></recaptcha>
-            </div>
-            <div class="icon1">
-              <input id="captcha_input" v-model="recaptchaCode" v-trim-input type="text" name="captcha_input"
-                :placeholder="t('請輸入驗證碼')" class="input_style" @keyup.enter="handleRegisterClick" />
+            <div class="icon1 icon-flex">
+              <div class="captcha">
+                <input id="captcha_input" v-model="recaptchaCode" v-trim-input type="text" name="captcha_input"
+                  :placeholder="t('CAPTCHA')" class="input_style" @keyup.enter="handleRegisterClick" />
+                <span>
+                  <recaptcha @check-hepler="checkHepler"></recaptcha>
+                </span>
+              </div>
             </div>
 
             <div style="margin-top: 16px">
-              <div class="btn btn-reg" @click="handleRegisterClick">
-                {{ $lang('申請注冊') }}
+              <div class="btn" @click="handleRegisterClick">
+                {{ $lang('Register') }}
               </div>
-              <div class="btn" @click="navigateTo('/login')">
-                {{ $lang('已有帳號') }}
+              <div class="btn-reg" @click="navigateTo('/login')">
+                Have an account?<span>{{ $lang('Login Now') }}</span>
               </div>
             </div>
           </div>
@@ -458,39 +460,47 @@ const handleCompositionEnd = (e) => {
       align-items: center
       .header-main
         margin-block: 40px
-        background: rgba(255, 255, 255, 0.98)
-        padding: 40px 30px
-        border-radius: 14px
-        max-width: 480px
+        background: #232323
+        padding: 40px 0
+        border-radius: 4px
+        max-width: 600px
         width: 100%
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1)
         @media (max-width: 768px)
           margin-inline: 20px
         .main-icon
-          text-align: center
+          text-align: left
           margin: 0 auto 20px
+          padding: 0 10px
+          
           h1
             font-size: 2rem
-            font-weight: bold
-            color: #f36d4c
+            font-weight: 500
+            color: #fff
             margin-bottom: 8px
-        img
-          max-width: 100%
+          img
+            height: 62px
 
-
+        .icon-flex
+          .captcha
+            position: relative
+            padding-inline-end: 120px
+            span
+              position: absolute
+              top: 2px
+              bottom: 2px
+              right: 2px
         .icon1
           margin: 1em 0 0
-          display: flex
-          align-items: center
-          justify-content: center
-
+          label
+            font-size: 14px
           input
-            padding: .8rem 1rem
-            background: rgba(255, 255, 255)
+            padding: .5rem 1rem
+            background: rgba(49, 52, 61)
             border: 1px solid rgba(0, 0, 0, 0.3)
-            color: black
+            color: #fff
             width: 100%
-            border-radius: 8px
+            border-radius: 3px
           span
             min-width: 64px !important
             // white-space: nowrap
@@ -498,27 +508,34 @@ const handleCompositionEnd = (e) => {
         .bottom
           margin: 1em 0 0
 
-        .header-left-bottom .btn
-          text-align: center  
-          width: 100%
-          padding: 16px
-          font-size: 22px
-          margin-top: 10px
-          border: none
-          border-radius: 8px
-          background: linear-gradient(90deg, #4590f1, #0999e0)
-          color: white
-          font-weight: bold
-          cursor: pointer
-          text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4)
-          transition: 0.3s ease
-          &:hover
-            background: linear-gradient(90deg, #3f8efc, #00e0ff)            
-          &.btn-reg
-            background: linear-gradient(90deg, #ff6a00, #f9b20e)
+        .header-left-bottom
+          padding: 0 30px
+          .btn
+            display: block
+            text-align: center
+            width: 300px
+            margin: 0 auto
+            max-width: 100%
+            padding: 10px 16px
+            font-size: 22px
+            margin-top: 10px
+            border: none
+            border-radius: 2px
+            background: linear-gradient(90deg, #4590f1, #0999e0)
+            color: white
+            font-weight: bold
+            cursor: pointer
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4)
+            transition: 0.3s ease
             &:hover
-              background: linear-gradient(90deg, #f5a623, #d83e00)
-              color: #feffca
+              background: linear-gradient(90deg, #3f8efc, #00e0ff)            
+        .btn-reg
+          text-align: center
+          margin-top: 20px
+          font-size: 14px
+          span
+            color: #fff
+            margin-left: 10px
         a
           color: #585858
           margin: 0em
@@ -673,7 +690,8 @@ const handleCompositionEnd = (e) => {
 .tips
   width: 100%
   font-size: 12px
-  color: red
+  min-height: 24px
+  color: #FF4D4F
   text-align: right
 </style>
 
@@ -732,13 +750,8 @@ h1
 .main-icon
   text-align: center
   margin: 0 auto 20px
-
-  img
-    width: 80px
 img
   max-width: 100%
-
-
 .bottom
   margin: 1em 0 0
 

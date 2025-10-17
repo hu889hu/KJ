@@ -137,7 +137,7 @@ export default {
 <style scoped>
 canvas {
   cursor: pointer;
-  height: 50px;
-  width: 130px;
+  height: 38px;
+  width: 110px;
 }
 </style>
