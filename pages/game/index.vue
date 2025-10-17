@@ -259,7 +259,6 @@ const startConnectWebSocket = async () => {
           productList.value = data.result
           const type2 = route.query.type;
           console.log(route.query.type, 'route.query.type');
-
           await onType(type2)
           break
         }
@@ -300,7 +299,7 @@ const startConnectWebSocket = async () => {
 }
 
 
-await onMounted(async () => {
+onMounted(async () => {
   await startConnectWebSocket()
 })
 
@@ -456,7 +455,7 @@ const displayedActivities = computed(() => {
         <div class="left" @click="sureItem">確定</div>
       </div>
     </div>
-    <div v-if="popupSwitch" class="popup" @click.self="popupSwitch = !popupSwitch">
+    <!-- <div v-if="popupSwitch" class="popup" @click.self="popupSwitch = !popupSwitch">
       <div class="card">
         <div class="title">{{ $lang('檢驗紀錄') }}</div>
         <div class="dataBox">
@@ -518,7 +517,7 @@ const displayedActivities = computed(() => {
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="dropdown-menu" @click.self="systemSwitch = !systemSwitch" :class="systemSwitch ? 'active' : ''">
       <span @click="systemSwitch = !systemSwitch"><i class="fa-solid fa-xmark"></i></span>
       <div class="dropdown-content" :class="systemSwitch ? 'active' : ''">
@@ -567,6 +566,7 @@ $background: rgba(0, 0, 0, 0.6)
 .nav-container
   position: sticky
   top: 0
+  z-index: 99
 .login-container
   margin: 0 auto
   display: flex
@@ -666,9 +666,6 @@ $background: rgba(0, 0, 0, 0.6)
   to 
     opacity: 1
     transform: translateY(0)
-
-
-
 .game-container
   height: 100vh
   overflow-y: auto
@@ -707,7 +704,6 @@ $background: rgba(0, 0, 0, 0.6)
       color: #ffffff
       padding: 10px 15px
       border-radius: 8px
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2)
       font-weight: bold
       letter-spacing: 2px
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.562)
