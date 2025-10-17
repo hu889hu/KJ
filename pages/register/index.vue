@@ -257,8 +257,9 @@ const handleCompositionEnd = (e) => {
               />
             </div> -->
             <div class="icon1">
-              <input v-model="signupData.account" v-trim-input type="text" :placeholder="t('請設置帳號')" class="input_style"
-                @input="validateAccount" @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" />
+              <input v-model="signupData.account" v-trim-input type="text" :placeholder="t('Please set up an account')"
+                class="input_style" @input="validateAccount" @copy="handCopyPaste" @paste="handCopyPaste"
+                @contextmenu="handCopyPaste" />
             </div>
             <div class="tips">
               <div :class="validationStatus.accountValid
@@ -268,13 +269,13 @@ const handleCompositionEnd = (e) => {
                 <span v-if="validationStatus.accountValid">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('需使用4-20位英文或數字') }}
+                {{ $lang('Use 4-20 digits of English or numbers') }}
               </div>
             </div>
             <div class="icon1">
               <input v-model="signupData.password" v-trim-input :type="passwordEyes ? 'text' : 'password'"
-                :placeholder="t('請設置密碼')" class="input_style" @input="checkPasswordRequired" @copy="handCopyPaste"
-                @paste="handCopyPaste" @contextmenu="handCopyPaste" />
+                :placeholder="t('Please set password')" class="input_style" @input="checkPasswordRequired"
+                @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" />
             </div>
             <div class="tips">
               <div :class="validationStatus.passwordValid
@@ -284,7 +285,7 @@ const handleCompositionEnd = (e) => {
                 <span v-if="validationStatus.passwordValid">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('需使用 3 個字元以上的英文或數字') }}
+                {{ $lang('Use English or numbers of at least 3 characters') }}
                 <!-- {{ $lang('需混合使用 3 個字元以上的英文或數字。') }} -->
               </div>
               <div v-if="signupData.password" :class="signupData.password !== signupData.account
@@ -294,30 +295,30 @@ const handleCompositionEnd = (e) => {
                 <span v-if="signupData.password !== signupData.account">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('登入密碼不可與帳號相同') }}
+                {{ $lang('The login password cannot be the same as the account') }}
               </div>
             </div>
             <div class="icon1">
-              <input ref="passwordSameRef" v-model="verifyPassword" v-trim-input :placeholder="t('再次輸入密碼')"
-                :type="passwordEyes ? 'text' : 'password'" class="input_style" @input="checkPasswordSame"
-                @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" />
+              <input ref="passwordSameRef" v-model="verifyPassword" v-trim-input
+                :placeholder="t('Enter password again')" :type="passwordEyes ? 'text' : 'password'" class="input_style"
+                @input="checkPasswordSame" @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" />
             </div>
             <div class="tips">
               <div v-if="verifyPassword">
                 <div v-if="validationStatus.passwordSame" class="valid-feedback">
-                  <i class="fas fa-check"></i> {{ $lang('確認相同') }}
+                  <i class="fas fa-check"></i> {{ $lang('Confirm the same') }}
                 </div>
                 <div v-else class="invalid-feedback">
                   <i class="fas fa-times"></i>
-                  {{ $lang('與登入密碼不相同') }}
+                  {{ $lang('Different from login password') }}
                 </div>
               </div>
             </div>
             <div v-if="siteStore.siteData.transactionPasswordRequired" class="icon1">
               <input ref="transactionPasswordRef" v-model="signupData.transactionPassword" v-trim-input
-                :type="tPasswordEyes ? 'text' : 'password'" class="input_style" placeholder="請設置交易密碼"
-                @input="checkTransactionPasswordRequired" @copy="handCopyPaste" @paste="handCopyPaste"
-                @contextmenu="handCopyPaste" />
+                :type="tPasswordEyes ? 'text' : 'password'" class="input_style"
+                placeholder="Please set a transaction password" @input="checkTransactionPasswordRequired"
+                @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" />
             </div>
             <div v-if="siteStore.siteData.transactionPasswordRequired" class="tips">
               <div :class="validationStatus.transactionPasswordValid
@@ -327,7 +328,7 @@ const handleCompositionEnd = (e) => {
                 <span v-if="validationStatus.transactionPasswordValid">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('需使用 3 個字元以上的英文或數字') }}
+                {{ $lang('Use English or numbers of at least 3 characters') }}
                 <!-- {{ $lang('需混合使用 3 個字元以上的英文或數字。') }} -->
               </div>
               <div v-if="signupData.transactionPassword" :class="!validationStatus.transactionPasswordSameWithPassword
@@ -337,28 +338,30 @@ const handleCompositionEnd = (e) => {
                 <span v-if="!validationStatus.transactionPasswordSameWithPassword">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('交易密碼不可與登入密碼,帳號相同') }}
+                {{ $lang('The transaction password cannot be the same as the login password or account') }}
               </div>
             </div>
             <div v-if="siteStore.siteData.transactionPasswordRequired" class="icon1">
               <input ref="transactionPasswordSameRef" v-model="verifyTransactionPassword" v-trim-input
                 :type="tPasswordEyes ? 'text' : 'password'" class="input_style" @input="checkTransactionPasswordSame"
-                @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste" placeholder="再次輸入交易密碼" />
+                @copy="handCopyPaste" @paste="handCopyPaste" @contextmenu="handCopyPaste"
+                placeholder="Enter the transaction password again" />
             </div>
             <div class="tips">
               <div v-if="verifyTransactionPassword">
                 <div v-if="validationStatus.transactionPasswordSame" class="valid-feedback">
-                  <i class="fas fa-check"></i> {{ $lang('確認相同') }}
+                  <i class="fas fa-check"></i> {{ $lang('Confirm the same') }}
                 </div>
                 <div v-else class="invalid-feedback">
                   <i class="fas fa-times"></i>
-                  {{ $lang('與交易密碼不相同') }}
+                  {{ $lang('Not the same as the transaction password') }}
                 </div>
               </div>
             </div>
             <div class="icon1" style="display: block">
-              <input v-model="signupData.mobile" v-trim-input type="text" :placeholder="t('請輸入行動電話')"
-                class="input_style" @input="checkPhoneValid" />
+              <input v-model="signupData.mobile" v-trim-input type="text"
+                :placeholder="t('Please enter your mobile phone number')" class="input_style"
+                @input="checkPhoneValid" />
             </div>
             <div class="tips">
               <div v-if="showPhoneValid" :class="validationStatus.phoneValid
@@ -368,14 +371,14 @@ const handleCompositionEnd = (e) => {
                 <span v-if="validationStatus.phoneValid">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('手機號碼開頭須為09，共10碼') }}
+                {{ $lang('The beginning of the mobile phone number must be 09, with a total of 10 digits') }}
               </div>
               <div ref="mobileRef" :class="signupData.mobile ? 'valid-feedback' : 'invalid-feedback'
                 ">
                 <span v-if="signupData.mobile">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('必填') }}
+                {{ $lang('required') }}
               </div>
             </div>
             <div class="icon1">
@@ -389,12 +392,12 @@ const handleCompositionEnd = (e) => {
                 <span v-if="signupData.username">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('必填') }}
+                {{ $lang('required') }}
               </div>
             </div>
             <div class="icon1" style="display: block">
-              <input v-model="signupData.socialId" v-trim-input :placeholder="t('請輸入LINE聯繫方式')" type="text"
-                class="input_style" />
+              <input v-model="signupData.socialId" v-trim-input
+                :placeholder="t('Please enter LINE contact information')" type="text" class="input_style" />
             </div>
             <!-- <div class="tips">
               <div ref="socialIdRef" :class="signupData.socialId ? 'valid-feedback' : 'invalid-feedback'
@@ -402,7 +405,7 @@ const handleCompositionEnd = (e) => {
                 <span v-if="signupData.socialId">
                   <i class="fas fa-check"></i>
                 </span>
-                {{ $lang('必填') }}
+                {{ $lang('required') }}
               </div>
             </div> -->
             <div class="icon1 icon-flex">
