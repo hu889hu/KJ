@@ -420,7 +420,7 @@ const handleCompositionEnd = (e) => {
                 {{ $lang('Register') }}
               </div>
               <div class="btn-reg" @click="navigateTo('/login')">
-                Have an account?<span>{{ $lang('Login Now') }}</span>
+                Have an account?<span>{{ $lang('Login') }}</span>
               </div>
             </div>
           </div>
