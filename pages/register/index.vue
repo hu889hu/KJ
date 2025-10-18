@@ -13,7 +13,8 @@ const signupData = ref({
   socialPlatform: '',
   socialId: '',
   additionalInfo: {},
-  freeze: true
+  freeze: true,
+  freezeMsg: '審核中'
 })
 const additionalInfo1Value = ref('Line')
 // const showReferrerInput = ref(false)
@@ -178,10 +179,10 @@ const goRegister = async () => {
     })
   } else {
     const signupRes = await signup(signupData.value)
-    console.log('signupRes', signupRes)
+    // console.log('signupRes', signupRes)
     if (signupRes.success) {
       referrerCodeCookiee.value = ''
-      navigateTo('/')
+      navigateTo('/login')
     }
   }
 }

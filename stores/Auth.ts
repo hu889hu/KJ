@@ -89,10 +89,10 @@ export const useAuthStore = defineStore('auth', () => {
         }
       }
       ElMessage.success(`${t('註冊成功')}`)
-      await signin({
-        account: params.account,
-        password: params.password
-      })
+      // await signin({
+      //   account: params.account,
+      //   password: params.password
+      // })
       return {
         success: true
       }
