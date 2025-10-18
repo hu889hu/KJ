@@ -12,7 +12,8 @@ const signupData = ref({
   mobile: '',
   socialPlatform: '',
   socialId: '',
-  additionalInfo: {}
+  additionalInfo: {},
+  freeze: true
 })
 const additionalInfo1Value = ref('Line')
 // const showReferrerInput = ref(false)
