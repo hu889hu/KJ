@@ -175,7 +175,7 @@ onUnmounted(() => {
                 本地知識，環球資源!
               </h1>
               <p>為客戶提供廣泛的金融服務，涵蓋投資和企業銀行、環球企業支付、市場業務、銷售和研究、證券服務、商業銀行以及資產管理等領域。</p>
-              <div class="about-item">
+              <div class="about-item" @click="navigateTo('/workrecord')">
                 <div class="about-icon">
                   <img src="@/assets/images/about_icon_1.svg" alt=""></img>
                 </div>
@@ -183,7 +183,7 @@ onUnmounted(() => {
                   查看您的工作紀錄
                 </div>
               </div>
-              <div class="about-item">
+              <div class="about-item" @click="navigateTo('/info')">
                 <div class="about-icon">
                   <img src="@/assets/images/about_icon_2.svg" alt=""></img>
                 </div>
@@ -191,7 +191,7 @@ onUnmounted(() => {
                   修改或查閱個人訊息
                 </div>
               </div>
-              <div class="about-item">
+              <div class="about-item" @click="navigateTo('/record')">
                 <div class="about-icon">
                   <img src="@/assets/images/about_icon_3.svg" alt=""></img>
                 </div>
