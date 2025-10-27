@@ -69,12 +69,12 @@ export const useOrderStore = defineStore('order', () => {
         }
         if (res.statusCode === 401) {
           ElNotification({
-            title: `${t('下單失敗')}`,
+            title: `${t('操作無效')}`,
             type: 'error',
             showClose: false,
-            message: `${t('請確認網路連線')}`
+            message: `${t('請確認資產餘額')}`
           })
-          message = `${t('請確認網路連線')}`
+          message = `${t('請確認資產餘額')}`
         }
         return {
           success: false,
