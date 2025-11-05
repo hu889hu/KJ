@@ -287,7 +287,7 @@ const startConnectWebSocket = async () => {
       load.value = false
       if (reconnected) {
         setTimeout(async () => {
-          // await startConnectWebSocket()
+          await startConnectWebSocket()
           console.log('reconnected to socket')
         }, 3000)
       }
