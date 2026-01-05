@@ -243,8 +243,8 @@ const handleCompositionEnd = (e) => {
       <div class="bg-layer">
         <div class="header-main">
           <div class="main-icon">
-            <img src="@/assets/images/logo-login.jpg" alt="">
-            <!-- <h1>AKASH SYSTEMS Registration</h1> -->
+            <img :src="siteStore.siteData?.logo" alt=""></img>
+            <!-- <img src="@/assets/images/logo-login.jpg" alt=""> -->
           </div>
           <div class="header-left-bottom">
             <!-- <div class="icon1">
@@ -476,7 +476,7 @@ const handleCompositionEnd = (e) => {
         .main-icon
           text-align: left
           margin: 0 auto 20px
-          padding: 0 10px
+          padding: 0 30px
           
           h1
             font-size: 2rem

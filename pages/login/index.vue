@@ -90,8 +90,8 @@ const openChatBox = () => {
       <div class="bg-layer">
         <div class="header-main">
           <div class="main-icon">
-            <img src="@/assets/images/logo-login.jpg" alt="">
-            <!-- <h1>AKASH SYSTEMS</h1> -->
+            <img :src="siteStore.siteData?.logo" alt=""></img>
+            <!-- <img src="@/assets/images/logo-login.jpg" alt=""> -->
           </div>
           <div class="header-left-bottom">
             <div class="icon1">
@@ -172,7 +172,7 @@ const openChatBox = () => {
         .main-icon
           text-align: left
           margin: 0 auto 20px
-          padding: 0 10px
+          padding: 0 30px
           h1
             font-size: 1.5rem
             font-weight: 500
