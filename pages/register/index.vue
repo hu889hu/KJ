@@ -477,14 +477,15 @@ const handleCompositionEnd = (e) => {
           text-align: left
           margin: 0 auto 20px
           padding: 0 30px
-          
+          max-height: 50px
           h1
-            font-size: 2rem
+            font-size: 1.5rem
             font-weight: 500
             color: #fff
             margin-bottom: 8px
           img
-            height: 62px
+            height: 100%
+            max-width: 100%
 
         .icon-flex
           .captcha
